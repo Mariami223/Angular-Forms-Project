@@ -4,68 +4,20 @@
   height: 500px;
   margin: 0 auto;
   display: flex;
+  gap: 30px;
   justify-content: center;
   flex-direction: column;
   background-color: white;
   margin-top: 40px;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
   align-items: center;
 }
 
-input {
-  border-style: none;
-  border: 1px solid rgba(156, 145, 145, 0.42);
-  width: 400px;
-  height: 50px;
-  padding: 5px;
-  font-size: 15px;
-  text-align: center;
-}
-.submit {
-  width: 400px;
+button {
+  width: 100px;
   height: 50px;
   background-color: #3b76cc;
   color: white;
   font-size: 1rem;
   border-style: none;
   cursor: pointer;
-}
-.userstyle {
-  width: 600px;
-  height: 50px;
-  font-size: 20px;
-  margin: 0 auto;
-  display: flex;
-  gap: 30px 30px;
-  justify-content: space-between;
-  align-items: center;
-}
-
-button {
-  width: 70px;
-  height: 30px;
-  background-color: #cc693b;
-  color: white;
-  border-style: none;
-}
-
-span {
-  color: red;
-  font-size: smaller;
-}
-
-.deleteAll {
-  width: 600px;
-  height: 50px;
-  margin: 0 auto;
-}
-.deleteAll button {
-  background-color: red;
-  margin-top: 30px;
-  width: 20%;
 }

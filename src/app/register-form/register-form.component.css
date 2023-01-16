@@ -1,0 +1,70 @@
+.container {
+  box-shadow: 4px 5px 6px rgb(218, 217, 217);
+  width: 600px;
+  height: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  margin-top: 40px;
+  align-items: center;
+}
+h1 {
+  color: #3b76cc;
+  margin-bottom: 19px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+form > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+form > .registerButton {
+  justify-content: end;
+}
+span {
+  color: red;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: smaller;
+}
+
+input {
+  border-style: none;
+  border: 1px solid rgba(156, 145, 145, 0.42);
+  width: 400px;
+  height: 50px;
+  padding: 5px;
+  font-size: 15px;
+  text-align: center;
+}
+button {
+  width: 70px;
+  height: 30px;
+  background-color: #cc693b;
+  color: white;
+  border-style: none;
+}
+.submit {
+  width: 400px;
+  height: 50px;
+  background-color: #3b76cc;
+  color: white;
+  font-size: 1rem;
+  border-style: none;
+  cursor: pointer;
+}
+.message {
+  color: green;
+  margin: 0 auto;
+}
