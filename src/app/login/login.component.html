@@ -1,5 +1,99 @@
 <div class="container">
-  <h1>ავტორიზაცია</h1>
+  <div class="rectangle2">
+    <h1>ავტორიზაცია</h1>
+    <div class="elipse">
+      <div class="elipse2">
+        <img src="../../assets/icon.png" />
+      </div>
+    </div>
+  </div>
+
+  <div class="rectangle1">
+    <div>
+      <h5>შეიყვანეთ თქვენი მონაცემები</h5>
+    </div>
+    <div>
+      <form [formGroup]="loginForm">
+        <div class="input-container">
+          <label>თქვენი ელ-ფოსტა</label>
+          <input type="text" formControlName="userName" id="userName" />
+        </div>
+
+        <div
+          *ngIf="userName.errors?.['required'] && (userName.touched || userName.dirty)"
+        >
+          <span>მოცემული ველის შევსება აუცილებელია</span>
+        </div>
+        <div class="input-container">
+          <label>პაროლი</label>
+          <input type="Password" formControlName="password" id="password" />
+        </div>
+
+        <div
+          *ngIf="password.errors?.['required'] && (password.touched || password.dirty)"
+        >
+          <span>მოცემული ველის შევსება აუცილებელია</span>
+        </div>
+        <div>
+          <input
+            type="submit"
+            class="submit"
+            value="ავტორიზაცია"
+            [disabled]="loginForm.invalid"
+            [ngStyle]="{
+              backgroundColor: loginForm.invalid ? 'lightblue' : ''
+            }"
+            (click)="onLogin()"
+          />
+        </div>
+
+        <a [routerLink]="'register'">რეგისტრაცია</a>
+        <p [ngStyle]="{ color: 'red' }">
+          {{ errorMessage }}
+        </p>
+      </form>
+    </div>
+
+    <!-- <form [formGroup]="loginForm">
+      <input
+        type="text"
+        formControlName="userName"
+        id="userName"
+        placeholder="სახელი"
+      />
+      <div
+        *ngIf="userName.errors?.['required'] && (userName.touched || userName.dirty)"
+      >
+        <span>მოცემული ველის შევსება აუცილებელია</span>
+      </div>
+      <input
+        type="Password"
+        placeholder="პაროლი"
+        formControlName="userPassword"
+        id="userPassword"
+      />
+      <div
+        *ngIf="userPassword.errors?.['required'] && (userPassword.touched || userPassword.dirty)"
+      >
+        <span>მოცემული ველის შევსება აუცილებელია</span>
+      </div>
+      <input
+        type="submit"
+        class="submit"
+        value="ავტორიზაცია"
+        [disabled]="loginForm.invalid"
+        [ngStyle]="{
+          backgroundColor: loginForm.invalid ? 'lightblue' : ''
+        }"
+        (click)="onLogin()"
+      />
+      <a [routerLink]="'register'">რეგისტრაცია</a>
+      <p [ngStyle]="{ color: 'red' }">
+        {{ errorMessage }}
+      </p>
+    </form>
+  </div> -->
+    <!-- <h1>ავტორიზაცია</h1>
   <form [formGroup]="loginForm">
     <input
       type="text"
@@ -37,5 +131,6 @@
     <p [ngStyle]="{ color: 'red' }">
       {{ errorMessage }}
     </p>
-  </form>
+  </form> -->
+  </div>
 </div>

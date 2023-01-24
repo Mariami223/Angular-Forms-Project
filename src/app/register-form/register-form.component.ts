@@ -3,6 +3,7 @@ import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Observable, Subscriber } from 'rxjs';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register-form',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register-form.component.css'],
 })
 export class RegisterFormComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {}
   message: string = '';
@@ -21,7 +22,7 @@ export class RegisterFormComponent implements OnInit {
       Validators.required,
       Validators.minLength(4),
     ]),
-    userPassword: new FormControl('', [
+    password: new FormControl('', [
       Validators.required,
       Validators.minLength(4),
     ]),
@@ -30,14 +31,21 @@ export class RegisterFormComponent implements OnInit {
   });
 
   onSubmit() {
-    if (this.registerForm.value) {
+    if (this.registerForm.valid) {
+      this.http
+        .post(
+          'https://localhost:7153/api/Register/registration',
+          this.registerForm.value,
+          { responseType: 'text' }
+        )
+        .subscribe((resp) => {
+          console.log(resp);
+          this.registerForm.reset();
+          this.message = resp;
+        });
       console.log(this.registerForm.value, 'Submitted');
-      this.authService.registerUser().subscribe((resp) => {
-        this.registerForm.reset();
-        this.message = resp;
-        // this.router.navigate(['/Login']);
-      });
     } else {
+      console.log('Error');
     }
   }
 
@@ -48,7 +56,7 @@ export class RegisterFormComponent implements OnInit {
   }
 
   get password() {
-    return this.registerForm.get('userPassword') as FormControl;
+    return this.registerForm.get('password') as FormControl;
   }
 
   get email() {

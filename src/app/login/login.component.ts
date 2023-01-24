@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
     userName: new FormControl('', [Validators.required]),
-    userPassword: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
   });
 
   constructor(
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.hhtp
         .post(
-          'https://localhost:7153/api/User/CreateUser',
+          'https://localhost:7153/api/Register/login',
           this.loginForm.value,
           { responseType: 'text' }
         )
@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
           },
           (err) => {
             this.errorMessage = err.error;
+            this.loginForm.reset();
           }
         );
     } else {
@@ -57,7 +58,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('userName') as FormControl;
   }
 
-  get userPassword() {
-    return this.loginForm.get('userPassword') as FormControl;
+  get password() {
+    return this.loginForm.get('password') as FormControl;
   }
 }

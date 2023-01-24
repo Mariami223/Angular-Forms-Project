@@ -10,6 +10,7 @@ import { AuthService } from './auth.service';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
+import { CartComponent } from './cart/cart.component';
 
 const appRoute: Routes = [
   { path: '', component: LoginComponent },
@@ -29,6 +30,7 @@ const appRoute: Routes = [
     NotFoundPageComponent,
     LoginComponent,
     UserComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
